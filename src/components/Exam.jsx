@@ -1,7 +1,10 @@
-import React from 'react'
-import Numbers from './Numbers'
+import { React, useState } from 'react'
+import Numbers from './NumbersModal'
+import FinishModal from './FinishModal'
 
 const Exam = () => {
+  const [openModal, setOpenModal] = useState(false)
+  const [openModalFinish, setOpenModalFinish] = useState(true)
   return (
     <div className="container mx-auto px-4">
       <section className="text-gray-600 body-font">
@@ -10,7 +13,7 @@ const Exam = () => {
             <div className="lg:w-full w-full mb-6 lg:mb-0">
             <div className="flex justify-between m-4 mb-5">
               <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Soal No. 1</h1>
-              <button className="mx-2 text-white bg-primary-700 border-0 py-2 px-8 focus:outline-none hover:bg-primary-900 rounded text-lg">Pilih Nomer</button>
+              <button onClick={() => setOpenModal(!openModal)} className="mx-2 text-white bg-primary-700 border-0 py-2 px-8 focus:outline-none hover:bg-primary-900 rounded text-lg">Pilih Nomer</button>
             </div>  
               <div className="h-1 w-full bg-primary-500 rounded"></div>
             </div>
@@ -44,12 +47,16 @@ const Exam = () => {
         </div>
         <div className="flex justify-between m-4 mb-10">
             <button className="mx-2 mt-2 text-white bg-primary-500 border-0 py-2 px-8 focus:outline-none hover:bg-primary-600 rounded text-lg">Sebelumnya</button>
-            
             <button className="mx-2 mt-2 text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg">Ragu-ragu</button>
             <button className="mx-2 mt-2 text-white bg-primary-500 border-0 py-2 px-8 focus:outline-class=strokeLinecapnone hover:bg-primary-600 rounded text-lg">Selanjutnya</button>
         </div>
       </section>
-      <Numbers />
+      <Numbers 
+        openModal = {openModal}
+        setOpenModal = {setOpenModal} />
+        <FinishModal 
+        openModal = {openModalFinish}
+        setOpenModal = {setOpenModalFinish} />
     </div>
     
   )

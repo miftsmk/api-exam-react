@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
-const ExamModal = (props) => {
+const FinishModal = (props) => {
     return (
       <Transition.Root show={props.openModal} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={props.setOpenModal}>
@@ -37,11 +37,11 @@ const ExamModal = (props) => {
                       </div>
                       <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                         <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
-                          Memulai Ujian
+                          Akhiri Ujian
                         </Dialog.Title>
                         <div className="mt-2">
                           <p className="text-sm text-gray-500">
-                            Apakah kamu yakin akan memulai ujian ini? <br/><br/> jika sudah yakin silahkan berdoa terlebih dahulu lalu klik tombol <br/>"Ya, Mulai".
+                            Apakah kamu yakin akan mengakhiri ujian ini?
                           </p>
                         </div>
                       </div>
@@ -60,7 +60,7 @@ const ExamModal = (props) => {
                       className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-green-500 sm:mt-0 sm:w-auto"
                       onClick={() => props.setOpenModal(false)}
                     >
-                      Ya, Mulai
+                      Ya, Akhiri
                     </button>
                   </div>
                 </Dialog.Panel>
@@ -72,4 +72,4 @@ const ExamModal = (props) => {
     )
 }
 
-export default ExamModal
+export default FinishModal
